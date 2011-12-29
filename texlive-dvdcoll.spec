@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 Having lost the overview of my DVD archives, I simply could not
@@ -35,20 +33,12 @@ archives of CD-ROMs, Audio-CDs and so on. Supported languages
 at the moment: English, French, German, Italian, Polish,
 Portuguese, Spanish. Some help is needed for other languages!.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -90,7 +80,6 @@ Portuguese, Spanish. Some help is needed for other languages!.
 %doc %{_texmfdistdir}/doc/latex/dvdcoll/dvdcoll.pdf
 %doc %{_texmfdistdir}/doc/latex/dvdcoll/dvdcoll_de.pdf
 %doc %{_texmfdistdir}/doc/latex/dvdcoll/manifest.txt
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -101,5 +90,3 @@ Portuguese, Spanish. Some help is needed for other languages!.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
