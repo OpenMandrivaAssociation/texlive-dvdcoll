@@ -1,12 +1,6 @@
-# revision 15878
-# category Package
-# catalog-ctan /macros/latex/contrib/dvdcoll
-# catalog-date 2008-04-30 11:48:45 +0200
-# catalog-license lppl
-# catalog-version v1.1a
 Name:		texlive-dvdcoll
-Version:	v1.1a
-Release:	10
+Version:	1.1a
+Release:	1
 Summary:	A class for typesetting DVD archives
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/dvdcoll
