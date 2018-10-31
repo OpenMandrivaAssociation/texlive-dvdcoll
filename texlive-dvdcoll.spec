@@ -1,6 +1,6 @@
 Name:		texlive-dvdcoll
 Version:	1.1a
-Release:	1
+Release:	2
 Summary:	A class for typesetting DVD archives
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/dvdcoll
