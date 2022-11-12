@@ -1,12 +1,12 @@
 Name:		texlive-dvdcoll
-Version:	1.1a
-Release:	2
+Version:	15878
+Release:	1
 Summary:	A class for typesetting DVD archives
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/dvdcoll
 License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dvdcoll.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dvdcoll.doc.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dvdcoll.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/dvdcoll.doc.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -28,12 +28,12 @@ at the moment: English, French, German, Italian, Polish,
 Portuguese, Spanish. Some help is needed for other languages!.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -77,24 +77,10 @@ Portuguese, Spanish. Some help is needed for other languages!.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1
+%autosetup -p1 -c -a1
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar bibtex tex doc %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> v1.1a-2
-+ Revision: 751175
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> v1.1a-1
-+ Revision: 718274
-- texlive-dvdcoll
-- texlive-dvdcoll
-- texlive-dvdcoll
-- texlive-dvdcoll
-
